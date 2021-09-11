@@ -2,8 +2,8 @@ name: checkIn
 
 on:
   schedule:
-    - cron:  '00 12 * * *'
-    # 每天12点签到
+    - cron:  '00 04 * * *'
+    # 每天中午12点签到
     
   workflow_dispatch:  # click the button on Github repo!
 

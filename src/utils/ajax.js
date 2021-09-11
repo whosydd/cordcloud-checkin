@@ -4,6 +4,7 @@ require('dotenv').config()
 // 从环境变量读取登录信息
 const email = process.env.email
 const passwd = process.env.passwd
+const code = process.env.code
 
 // 获取cookie
 const getCookie = url => {
@@ -13,7 +14,7 @@ const getCookie = url => {
   })
   return new Promise(resolve => {
     req
-      .post(url, { email, passwd, code: '' })
+      .post(url, { email, passwd, code })
       .then(res => resolve(res.headers['set-cookie']))
       .catch(err => {
         console.log(err.message)

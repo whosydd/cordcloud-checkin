@@ -1,0 +1,24 @@
+name: checkIn
+
+on:
+  schedule:
+    - cron:  '00 12 * * *'
+    # 每天12点签到
+
+env:
+  email: ${{ secrets.EMAIL }}
+  passwd: ${{ secrets.TOKEN }}
+  code: ""
+  
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install
+      - run: npm start

@@ -1,12 +1,14 @@
 {
   "name": "cordcloud-checkin",
   "version": "1.0.0",
-  "description": "",
+  "description": "cordcloud自动签到",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./src/index.js"
   },
-  "keywords": [],
+  "keywords": [
+    "cordcloud"
+  ],
   "author": "whosydd <dev.youngkwok718@gmail.com>",
   "license": "MIT",
   "dependencies": {

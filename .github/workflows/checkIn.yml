@@ -23,6 +23,5 @@ jobs:
         with:
           node-version: '14'
           cache: 'yarn'
-          cache-dependency-path: subdir/yarn.lock
       - run: yarn
       - run: yarn start

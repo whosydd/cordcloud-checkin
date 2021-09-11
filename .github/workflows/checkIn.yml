@@ -4,6 +4,8 @@ on:
   schedule:
     - cron:  '00 12 * * *'
     # 每天12点签到
+    
+  workflow_dispatch:  # click the button on Github repo!
 
 env:
   email: ${{ secrets.EMAIL }}

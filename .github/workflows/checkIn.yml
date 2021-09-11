@@ -2,19 +2,18 @@ name: checkIn
 
 on:
   schedule:
-    - cron:  '00 04 * * *'
+    - cron: '00 04 * * *'
     # 每天中午12点签到
-    
-  workflow_dispatch:  # click the button on Github repo!
+
+  workflow_dispatch: # click the button on Github repo!
 
 env:
   email: ${{ secrets.EMAIL }}
   passwd: ${{ secrets.TOKEN }}
-  code: ""
-  
+  code: ''
+
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:

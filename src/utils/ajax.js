@@ -5,6 +5,7 @@ require('dotenv').config()
 const email = process.env.email
 const passwd = process.env.passwd
 const code = process.env.code
+const bakURL = process.env.bakURL
 
 // 获取cookie
 const getCookie = url => {
@@ -14,17 +15,17 @@ const getCookie = url => {
   })
   return new Promise(resolve => {
     req
-      .post(url, { email, passwd, code })
+      .post(url + '/auth/login', { email, passwd, code })
       .then(res => resolve(res.headers['set-cookie']))
       .catch(err => {
         console.log(err.message)
-        resolve(getCookie('https://www.c-cloud.xyz/auth/login'))
+        resolve(getCookie(bakURL))
       })
   })
 }
 
 // 签到
-const checkIn = function (url, cookie) {
+const checkIn = (url, cookie) => {
   const req = axios.create({
     timeout: 5000,
     headers: {
@@ -33,11 +34,11 @@ const checkIn = function (url, cookie) {
   })
   return new Promise(resolve => {
     req
-      .post(url)
+      .post(url + '/user/checkin')
       .then(res => resolve(res.data))
       .catch(err => {
         console.log(err.message)
-        resolve(checkIn('https://www.c-cloud.xyz/user/checkin', cookie))
+        resolve(checkIn(bakURL, cookie))
       })
   })
 }

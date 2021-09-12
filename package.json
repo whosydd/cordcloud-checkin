@@ -1,6 +1,6 @@
 {
   "name": "cordcloud-checkin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "cordcloud自动签到",
   "main": "index.js",
   "scripts": {

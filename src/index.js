@@ -1,11 +1,14 @@
 const { getCookie, checkIn } = require('./utils/ajax')
+require('dotenv').config()
 
 async function app() {
+  const mainURL = process.env.mainURL
+
   // 获取cookie
-  const cookie = await getCookie('https://www.cordcloud.one/auth/login')
+  const cookie = await getCookie(mainURL)
 
   // 签到
-  const res = await checkIn('https://www.cordcloud.one/user/checkin', cookie)
+  const res = await checkIn(mainURL, cookie)
   console.log(res.msg)
 }
 app()

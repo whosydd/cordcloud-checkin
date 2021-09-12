@@ -1,4 +1,4 @@
-name: checkIn
+name: checkin
 
 on:
   schedule:

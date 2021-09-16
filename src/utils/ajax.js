@@ -11,7 +11,6 @@ const bakURL = process.env.bakURL
 const getCookie = url => {
   const req = axios.create({
     timeout: 5000,
-    withCredentials: true,
   })
   return new Promise(resolve => {
     req

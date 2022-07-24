@@ -11,7 +11,7 @@ env:
   email: ${{ secrets.EMAIL }}
   passwd: ${{ secrets.TOKEN }}
   code: ''
-  mainURL: 'https://www.cordcloud.one'
+  mainURL: 'https://www.cordc.net'
   bakURL: 'https://www.c-cloud.xyz'
 
 jobs:

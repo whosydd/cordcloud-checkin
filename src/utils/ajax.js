@@ -18,7 +18,6 @@ const getCookie = url => {
       .then(res => resolve(res.headers['set-cookie']))
       .catch(err => {
         console.log(err.message)
-        resolve(getCookie(bakURL))
       })
   })
 }

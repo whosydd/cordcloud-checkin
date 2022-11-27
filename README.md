@@ -2,9 +2,12 @@
 
 ## 配置项
 
-由于登录信息比较敏感，需要在`secrets`中配置
+由于目前直接使用 cookie 进行签到，所以当cookie信息失效时会发送邮件到已配置的 QQ 邮箱，需要在 `secrets` 中配置相关环境变量
 
-![Screenshot of Actions secrets](https://raw.githubusercontent.com/whosydd/images-in-one/main/202109111336293.jpg)
+- `MAIL` ：默认使用 QQ 邮箱
+- `TOKEN` ：这是 smtp 授权码
+- `URL`：cordcloud 的网站地址
+- `COOKIE`：直接登录 cordcloud 使用控制台获取 cookie
 
 ## 使用
 

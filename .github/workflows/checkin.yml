@@ -8,11 +8,10 @@ on:
   workflow_dispatch: # click the button on Github repo!
 
 env:
-  email: ${{ secrets.EMAIL }}
-  passwd: ${{ secrets.TOKEN }}
-  code: ''
-  mainURL: 'https://www.cordc.net'
-  bakURL: 'https://www.c-cloud.xyz'
+  MAIL: ${{ secrets.EMAIL }}
+  TOKEN: ${{ secrets.TOKEN }}
+  URL: ${{ secrets.URL }}
+  COOKIE: ${{ secrets.COOKIE }}
 
 jobs:
   build:

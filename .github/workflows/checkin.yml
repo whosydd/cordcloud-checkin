@@ -8,7 +8,8 @@ on:
   workflow_dispatch: # click the button on Github repo!
 
 env:
-  MAIL: ${{ secrets.MAIL }}
+  SEND_MAIL: ${{ secrets.SEND_MAIL }}
+  RECEIVE_MAIL: ${{ secrets.RECEIVE_MAIL }}
   TOKEN: ${{ secrets.TOKEN }}
   URL: ${{ secrets.URL }}
   COOKIE: ${{ secrets.COOKIE }}

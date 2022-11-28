@@ -9,16 +9,16 @@ module.exports = err => {
     port: 465, //端口号
     secure: true, //465为true,其他为false
     auth: {
-      user: process.env.MAIL, //你的邮箱
-      // 这里密码不是qq密码，是你设置的smtp授权码
+      user: process.env.SEND_MAIL, //邮箱
+      // 这里密码不是qq密码，是smtp授权码
       pass: process.env.TOKEN,
     },
   })
 
   // 设置邮件信息
   let mailOptions = {
-    from: process.env.MAIL, // sender address
-    to: 'dev.youngkwok718@gmail.com', // list of receivers
+    from: process.env.SEND_MAIL, // sender address
+    to: process.env.RECEIVE_MAIL, // list of receivers
     subject: 'cordcloud-checkin 签到异常', // Subject line
     // 发送text或者html格式
     html: `<h2>${err.message}</h2>`,

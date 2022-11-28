@@ -8,6 +8,5 @@ async function app() {
   // 签到
   const res = await checkIn(url, cookie)
   console.log(res.msg)
-  // }
 }
 app()

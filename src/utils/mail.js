@@ -18,8 +18,8 @@ module.exports = err => {
   // 设置邮件信息
   let mailOptions = {
     from: process.env.MAIL, // sender address
-    to: process.env.MAIL, // list of receivers
-    subject: 'cordcloud-checkin 无法签到', // Subject line
+    to: 'dev.youngkwok718@gmail.com', // list of receivers
+    subject: 'cordcloud-checkin 签到异常', // Subject line
     // 发送text或者html格式
     html: `<h2>${err.message}</h2>`,
   }

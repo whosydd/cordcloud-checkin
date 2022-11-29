@@ -1,5 +1,7 @@
 # cordcloud-checkin
 
+## ⚠️由于目前需要处理 `cloudflare bypass` 的问题，暂时 `DEPRECATED`
+
 ## 配置项
 
 由于目前直接使用 cookie 进行签到，所以当 cookie 信息失效时会使用 QQ 邮箱发送邮件，需要在 `secrets` 中配置相关环境变量

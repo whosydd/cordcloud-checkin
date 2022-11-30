@@ -7,25 +7,30 @@ on:
 
   workflow_dispatch: # click the button on Github repo!
 
-env:
-  SEND_MAIL: ${{ secrets.SEND_MAIL }}
-  RECEIVE_MAIL: ${{ secrets.RECEIVE_MAIL }}
-  TOKEN: ${{ secrets.TOKEN }}
-  URL: ${{ secrets.URL }}
-  COOKIE: ${{ secrets.COOKIE }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
+      - name: Check code
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v2
         with:
-          version: 6.32.9
-      - uses: actions/setup-node@v3
+          node-version: '16'
+          cache: 'yarn'
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
+      - run: yarn
+      - uses: maufrontier/puppeteer-headful@v3
+        env:
+          CI: 'true'
+          SEND_MAIL: ${{ secrets.SEND_MAIL }}
+          RECEIVE_MAIL: ${{ secrets.RECEIVE_MAIL }}
+          TOKEN: ${{ secrets.TOKEN }}
+          URL: ${{ secrets.URL }}
+          LOGIN_MAIL: ${{ secrets.LOGIN_MAIL }}
+          LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
         with:
-          node-version: '14'
-          cache: 'pnpm'
-      - run: pnpm install --no-frozen-lockfile
-      - run: pnpm start
+          commands: yarn start

@@ -1,14 +1,20 @@
 const { checkIn } = require('./utils/ajax')
+const mail = require('./utils/mail')
 const { login } = require('./utils/puppeteer')
-require('dotenv').config()
 
 const app = async () => {
-  const url = process.env.URL
   // 获取 cookie
-  const cookie = await login(url)
+  const { cookie, err } = await login()
+
+  // 出现错误时，发送邮件
+  if (err != null) {
+    // mail(err)
+    return
+  }
+
   // 签到
-  const { data } = await checkIn(url, cookie)
-  console.log('msg:', data)
+  const { data } = await checkIn(cookie)
+  console.log(data.msg)
 }
 module.exports = {
   app,

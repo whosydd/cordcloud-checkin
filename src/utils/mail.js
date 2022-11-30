@@ -1,5 +1,4 @@
 const nodemailer = require('nodemailer')
-require('dotenv').config()
 
 module.exports = err => {
   // 设置邮箱信息

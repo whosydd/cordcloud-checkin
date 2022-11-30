@@ -1,9 +1,10 @@
 const axios = require('axios')
 const mail = require('./mail')
-require('dotenv').config()
+
+const url = process.env.URL
 
 // 签到
-const checkIn = (url, cookie) => {
+const checkIn = cookie => {
   const req = axios.create({
     timeout: 5000,
     headers: {
@@ -19,9 +20,9 @@ const checkIn = (url, cookie) => {
         resolve(res)
       })
       .catch(err => {
+        console.log('ajax_err:', err.message)
         // 无法签到时，发送邮件
         mail(err)
-        console.log('err:', err.message)
       })
   })
 }

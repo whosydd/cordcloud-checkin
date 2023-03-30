@@ -1,0 +1,25 @@
+name: dev
+
+on:
+  schedule:
+    - cron: '00 04 * * *'
+    # 每天中午12点签到
+
+  workflow_dispatch: # click the button on Github repo!
+
+env:
+  EMAIL: ${{ secrets.EMAIL }}
+  PASSWD: ${{ secrets.PASSWD }}
+  URL: https://cordcloud.biz/auth/login
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'yarn'
+      - run: yarn
+      - run: yarn start
